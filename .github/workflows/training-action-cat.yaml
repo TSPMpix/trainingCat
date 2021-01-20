@@ -11,4 +11,8 @@ jobs:
         id: myref
       - name: Print current branch
         shell: bash
-        run: echo ${{ steps.myref.outputs.branch }}    
+        run: echo ${{ steps.myref.outputs.branch }}
+    if: ${{ steps.myref.outputs.branch }} === 'A'
+    steps:
+      env:
+        C: ${{ secrets.A }}
