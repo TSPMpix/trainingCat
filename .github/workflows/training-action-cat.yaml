@@ -15,6 +15,6 @@ jobs:
     if: ${{ steps.myref.outputs.branch }} === 'A'
     steps:  
       - name: Print env C
-      env:
-        C: ${{ secrets.A }}
+          env:
+            C: ${{ secrets.A }}
       - run: echo $C
