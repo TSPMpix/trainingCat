@@ -13,8 +13,9 @@ jobs:
     steps:    
       env:
         C: ${{ secrets.A }}
+    - run: echo $C
     if: ${{ steps.myref.outputs.branch }} === 'B'
     steps:        
       env:
-        C: ${{ secrets.B }}      
-      - run: echo $C
+        C: ${{ secrets.B }}
+    - run: echo $C 
