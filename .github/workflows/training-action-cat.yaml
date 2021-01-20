@@ -12,7 +12,7 @@ jobs:
       - name: Print current branch
         shell: bash
         run: echo ${{ steps.myref.outputs.branch }}
-    if: ${{ steps.myref.outputs.branch }} == 'A'
+  if: ${{ steps.myref.outputs.branch }} == 'A'
     steps:  
       - name: Print env C
         env:
