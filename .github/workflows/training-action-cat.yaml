@@ -8,7 +8,12 @@ jobs:
       - name: Get the current branch name
         shell: bash
         run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-        id: myref    
+        id: myref        
+    if: ${{ steps.myref.outputs.branch }} === 'A'
+    steps:    
+      env:
+        C: ${{ secrets.A }}
+    - run: echo $C
     if: ${{ steps.myref.outputs.branch }} === 'B'
     steps:        
       env:
