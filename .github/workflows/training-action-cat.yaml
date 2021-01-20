@@ -16,3 +16,4 @@ jobs:
     steps:
       env:
         C: ${{ secrets.A }}
+      run: echo $C
