@@ -13,8 +13,8 @@ jobs:
         shell: bash
         run: echo ${{ steps.myref.outputs.branch }}
   if: ${{ steps.myref.outputs.branch }} == 'A'
+    env:
+      C: ${{ secrets.A }}
     steps:  
-      - name: Print env C
-        env:
-            C: ${{ secrets.A }}
+      - name: Print env C        
         run: echo $C
