@@ -9,10 +9,12 @@ jobs:
         shell: bash
         run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
         id: myref        
-      if: ${{ steps.myref.outputs.branch }} === 'A'      
-        env:
-          C: ${{ secrets.A }}
+    steps:
+    if: ${{ steps.myref.outputs.branch }} === 'A'
+      env:
+        C: ${{ secrets.A }}
+    steps:
       if: ${{ steps.myref.outputs.branch }} === 'B'      
         env:
           C: ${{ secrets.B }}      
-      run: echo $C
+      - run: echo $C
