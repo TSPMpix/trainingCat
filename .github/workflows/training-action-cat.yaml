@@ -13,7 +13,6 @@ jobs:
         shell: bash
         run: echo ${{ steps.myref.outputs.branch }}
     if: ${{ steps.myref.outputs.branch }} === 'A'
-    steps:
       env:
         C: ${{ secrets.A }}
       run: echo $C
