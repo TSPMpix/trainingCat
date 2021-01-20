@@ -5,8 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Install
-        run:  yarn install
-      - name: Test
-        run: yarn test
+      - name: Get the current branch name
+        shell: bash
+        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+        id: myref       
+        
+      if: ${{ steps.myref.outputs.branch }} === 'A'      
+        env:
+          C: ${{ secrets.A }}
+      if: ${{ steps.myref.outputs.branch }} === 'B'      
+        env:
+          C: ${{ secrets.B }}      
+      run: echo $C
