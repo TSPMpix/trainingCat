@@ -16,5 +16,5 @@ jobs:
         if: steps.extract_branch.outputs.branch == 'A'
         env:
             C: ${{ secrets.A }}
-      - name: Print env C
         run: echo $C
+        
