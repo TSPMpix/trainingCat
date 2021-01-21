@@ -3,7 +3,7 @@ on: [push]
 jobs:
   cat-testing:
     runs-on: ubuntu-latest
-    if: ${{ steps.extract_branch.outputs.branch }} == 'A'
+    if: steps.extract_branch.outputs.branch == 'A'
     env:
          C: ${{ secrets.A }}
     steps:
