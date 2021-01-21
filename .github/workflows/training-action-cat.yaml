@@ -16,7 +16,7 @@ jobs:
         if: steps.extract_branch.outputs.branch == 'A'
         env:
             C: ${{ secrets.A }}
-        if: steps.extract_branch.outputs.branch == 'B'
+        else if: steps.extract_branch.outputs.branch == 'B'
         env:
             C: ${{ secrets.B }}
         run: echo $C
