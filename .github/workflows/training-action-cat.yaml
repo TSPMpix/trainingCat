@@ -4,6 +4,8 @@ jobs:
   cat-testing:
     runs-on: ubuntu-latest
     if: ${{ steps.extract_branch.outputs.branch }} == 'A'
+    env:
+         C: ${{ secrets.A }}
     steps:
       - uses: actions/checkout@v2
       - name: Extract branch name
@@ -13,7 +15,5 @@ jobs:
       - name: Print current branch
         shell: bash
         run: echo ${{ steps.extract_branch.outputs.branch }}
-        env:
-         C: ${{ secrets.A }}
       - name: Print env C
         run: echo $C
