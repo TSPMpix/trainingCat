@@ -13,8 +13,8 @@ jobs:
         shell: bash
         run: echo ${{ steps.extract_branch.outputs.branch }}
       - name: Appropriation env C
-        if: steps.extract_branch.outputs.branch == 'A'
+        if: steps.extract_branch.outputs.branch == 'B'
         env:
-            C: ${{ secrets.A }}
+            C: ${{ secrets.B }}
         run: echo $C
         
