@@ -12,14 +12,7 @@ jobs:
       - name: Print current branch
         shell: bash
         run: echo ${{ steps.extract_branch.outputs.branch }}
-      - name: Appropriation env C if branch name A
-        if: steps.extract_branch.outputs.branch == 'A'
+      - name: Appropriation env C
         env:
-            C: ${{ secrets.A }}
-        run: echo $C
-      - name: Appropriation env C if branch name B
-        if: steps.extract_branch.outputs.branch == 'B'
-        env:
-            C: ${{ secrets.B }}
-        run: echo $C
-        
+            C: ${{ steps.extract_branch.outputs.branch == 'A' && secrets.A || secrets.B }}            
+        run: echo $C        
